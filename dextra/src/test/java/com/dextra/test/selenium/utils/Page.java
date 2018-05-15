@@ -1,6 +1,5 @@
 package com.dextra.test.selenium.utils;
 
-
 import java.util.List;
 
 import org.junit.Assert;
@@ -19,9 +18,9 @@ public class Page {
         this.driver = driver;
     }
 
-    public void goTo(String url) {
-        this.driver.get(Base.serverUrl + url);
-    }
+   // public void goTo(String url) {
+   //     this.driver.get(Base.serverUrl + url);
+   // }
 
     public void clickOn(String path) {
         this.driver.findElement(By.xpath(path)).click();
@@ -76,7 +75,7 @@ public class Page {
 
     public void waitForElementToBeClickable(String xpath) {
 
-        WebDriverWait wait = new WebDriverWait(this.driver, 30);
+        WebDriverWait wait = new WebDriverWait(this.driver, 50);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpath)));
 
     }
@@ -165,6 +164,15 @@ public class Page {
         this.waitPleaseWaitToBeInvisible();
     }
 
+    public void measurePerformance(long totalTime, long expectedTime) {
+
+        if (totalTime > expectedTime) {
+
+            Assert.fail();
+
+        }
+
+    }
 
     public WebDriver getDriver() {
         return driver;

@@ -22,7 +22,7 @@ public class CarPageMapping extends Page{
 				
 	}
 	
-	public String getTotal(){
+	public String getTotalText(){
 		return getText(".//*[@class='summary-total']/span[2]");
 	}
 	
@@ -31,11 +31,14 @@ public class CarPageMapping extends Page{
 	}
 	
 	public void validateTotal(double total){
-		String value = this.getTextSplit();
+		
+		String value = this.getTotalText();
 		
 		 if (value.length() > 2) 
 			 	value = value.substring (2); 
-		
+		 
+		 System.out.println(total);
+		 System.out.println(Double.parseDouble(value));
 		if(total > Double.parseDouble(value) ){
 			
 			Assert.fail();

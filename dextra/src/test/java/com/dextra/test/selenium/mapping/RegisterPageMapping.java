@@ -27,7 +27,7 @@ public class RegisterPageMapping extends Page{
 	}
 	
 	public void clickOnCPF (){
-		waitForElementToBeClickable(".//*[@id='cpf-input'");
+		waitForElementToBeClickable(".//*[@id='cpf-input']");
 		clickOn(".//*[@id='cpf-input']");
 	}
 	
@@ -67,15 +67,16 @@ public class RegisterPageMapping extends Page{
 	}
 	
 	public void selectFemale(){
-		clickOn(".//*[@id='gender_F']");
+		waitForElementToBeClickable(".//*[@id='gender_F']/following-sibling::label");
+		clickOn(".//*[@id='gender_F']/following-sibling::label");
 	}
 	
 	public void selectMale(){
-		clickOn(".//*[@id='gender_M']");
+		clickOn(".//*[@id='gender_M']/following-sibling::label");
 	}
 	
 	public String getPasswordStrenght (){
-		return getText(".//*[class='passwordWrapper-msg']");
+		return getText(".//*[@id='password']/div[2]");
 	}
 	
 	public void clickOnRegisterButton(){

@@ -10,8 +10,8 @@ public class HomePageMapping extends Page{
 	}
 	
 	public void clickOnNewClient(){
-		waitForElementToBeClickable(".//*[contains(text(), 'Cliente novo')]");
-		clickOn(".//*[contains(text(), 'Cliente novo')]");
+		waitForElementToBeClickable(".//*[@id='h_user']/span[2]/div/a[2]");
+		clickOn(".//*[@id='h_user']/span[2]/div/a[2]");
 	}
 	
 	public void clickOnRegisterDropdown(){
